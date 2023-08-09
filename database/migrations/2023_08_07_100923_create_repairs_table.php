@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('repair_details', function (Blueprint $table) {
+        Schema::create('repairs', function (Blueprint $table) {
             $table->id();
-            $table->longText('content');
-            $table->float('cost');
-            $table->string('result');
+            $table->integer('repair_count')->nullable();
+            $table->foreignId('device_id')->nullable()->constrained('devices');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('repair_details');
+        Schema::dropIfExists('repairs');
     }
 };

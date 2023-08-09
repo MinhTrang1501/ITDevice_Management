@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('repair_details', function (Blueprint $table) {
+        Schema::create('type_repairs', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('repair_id')->constrained('repairs');
+            $table->tinyInteger('type')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('repair_details', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('type_repairs');
     }
 };

@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('repairs', function (Blueprint $table) {
+        Schema::create('repair_details', function (Blueprint $table) {
+            $table->id();
+            $table->longText('content');
+            $table->integer('cost');
+            $table->string('result');
             $table->foreignId('repair_id')->constrained('repairs');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('repairs', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('repair_details');
     }
 };

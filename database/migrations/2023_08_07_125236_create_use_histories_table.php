@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('use_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('department_id')->constrained('departments');
-            $table->foreignId('device_id')->constrained('devices');
-            $table->integer('request_id');
+            $table->foreignId('user_id')->constrained('users')->nullable();
+            $table->foreignId('department_id')->constrained('departments')->nullable();;
+            $table->foreignId('device_id')->constrained('devices')->nullable();;
+            $table->foreignId('request_id')->constrained('requests');
+            $table->tinyInteger('status');
+            $table->dateTime('borrowed_date');
+            $table->dateTime('return_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

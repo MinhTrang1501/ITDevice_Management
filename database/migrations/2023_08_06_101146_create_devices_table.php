@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->string('image');
-            $table->tinyInteger('status')->default(0);
-            $table->integer('quantity');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->string('color');
+            $table->double('purchase_price');
+            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('configuration')->default(1);
+            $table->tinyInteger('condition')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

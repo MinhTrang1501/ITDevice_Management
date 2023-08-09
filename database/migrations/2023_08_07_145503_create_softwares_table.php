@@ -15,9 +15,12 @@ class CreateSoftwaresTable extends Migration
     {
         Schema::create('softwares', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('device_id')->constrained('devices')->onDelete('cascade');
             $table->string('name');
+            $table->string('image')->nullable();
             $table->string('version');
+            $table->string('license_key');
+            $table->double('license_price');
+            $table->integer('usage_count');
             $table->dateTime('start');
             $table->dateTime('end');
             $table->timestamps();

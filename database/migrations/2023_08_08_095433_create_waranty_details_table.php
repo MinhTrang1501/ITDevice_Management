@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWarantyTypesTable extends Migration
+class CreateWarantyDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateWarantyTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('warranty_types', function (Blueprint $table) {
+        Schema::create('warranty_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('warranty_id')->nullable()->constrained('warranties');
-            $table->tinyInteger('type');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->longText('content');
+            $table->string('result');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +30,6 @@ class CreateWarantyTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warranty_types');
+        Schema::dropIfExists('warranty_details');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnPurchasePriceDevicesTable extends Migration
+class AddForeignKeyUserIdDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnPurchasePriceDevicesTable extends Migration
      */
     public function up()
     {
-        Schema::table('devices', function (Blueprint $table) {
-            $table->double('purchase_price');
+        Schema::table('departments', function (Blueprint $table) {
+            $table->foreignId('user_id')->affter('id')->nullable()->constrained('users');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnPurchasePriceDevicesTable extends Migration
      */
     public function down()
     {
-        Schema::table('devices', function (Blueprint $table) {
-            $table->dropColumn('purchase_price');
+        Schema::table('departments', function (Blueprint $table) {
+            //
         });
     }
 }
