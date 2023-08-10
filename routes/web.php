@@ -1,6 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SoftwareController;
+use App\Http\Controllers\RequestController;
+use App\Http\Controllers\WarrantyController;
+use App\Http\Controllers\RepairController;
+use App\Http\Controllers\Api\HomeController as HomeApiController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,20 +26,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::get('/home', [HomeController::class, 'index'])->middleware('login')->name('home');
+Route::get('/', [HomeController::class, 'index'])->middleware('login')->name('home');
 Route::get('/get-devices-info', [HomeApiController::class, 'getDevicesInfo'])->middleware('login', 'can:isAdmin')->name('getDevicesInfo');
 Route::get('/get-requests-info', [HomeApiController::class, 'getRequestsInfo'])->middleware('login', 'can:isAdmin')->name('getRequestsInfo');
 Route::get('/get-requests-by-day', [HomeApiController::class, 'getRequestByDay'])->middleware('login', 'can:isAdmin')->name('getRequestByDay');
@@ -40,7 +51,7 @@ Route::prefix('departments')->middleware('login', 'can:isSuperAdmin')->group(fun
     Route::get('delete/{id}', [DepartmentController::class, 'delete'])->name('department.delete');
 });
 
-Route::prefix('categories')->middleware('login', 'can:isAdmin')->group(function(){
+Route::prefix('categories')->middleware('login')->group(function(){
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
     Route::get('create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('store', [CategoryController::class, 'store'])->name('category.store');
