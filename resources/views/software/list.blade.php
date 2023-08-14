@@ -17,62 +17,63 @@
         <h4 class="alert alert-danger">{{ session('alert') }}</h4>
     </div>
     @endif
-    <div class="card">
-        <div class="table-responsive text-wrap">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tên phần mềm</th>
-                        <th>Ảnh</th>
-                        <th>Phiên bản</th>
-                        <th>Licence key</th>
-                        <th>Lượt dùng</th>
-                        <th>Ngày bắt đầu</th>
-                        <th>Ngày hết hạn</th>
-                        <th>Giá bản quyền</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    @foreach ( $softwares as $key => $software )
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td><strong>{{ $software->name }}</strong></td>
-                        <td><img src="{{ asset('image/software/' . $software->image) }}" alt="" width="40px"
-                                height="40px"></td>
-                        <td>{{ $software->version }}
-                        </td>
-                        <td>{{ $software->license_key }}</td>
-                        <td>{{ $software->usage_count }}</td>
-                        <td>{{ $software->start }}</td>
-                        <td>{{ $software->end }}</td>
-                        <td>{{ $software->license_price }}</td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item"
-                                        href="{{ route('software.listDeviceUsage', $software->id) }}"><i
-                                            class="fas fa-laptop"></i> Thiết bị sử dụng</a>
-                                    <a class="dropdown-item" href="{{ route('software.edit', $software->id) }}"><i
-                                            class="bx bx-edit-alt me-1"></i> Sửa</a>
-                                    <a class="dropdown-item" href="{{ route('software.delete', $software->id) }}"
-                                        onclick="return myFunction();"><i class="bx bx-trash me-1"></i>
-                                        Xóa</a>
+    <div class="row m-t-30">
+        <div class="col-md-12">
+            <div class="table-responsive text-wrap table--no-card m-b-40">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên phần mềm</th>
+                            <th>Ảnh</th>
+                            <th>Phiên bản</th>
+                            <th>Licence key</th>
+                            <th>Lượt dùng</th>
+                            <th>Ngày bắt đầu</th>
+                            <th>Ngày hết hạn</th>
+                            <th>Giá bản quyền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ( $softwares as $key => $software )
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td><strong>{{ $software->name }}</strong></td>
+                            <td><img src="{{ asset('image/software/' . $software->image) }}" alt="" width="40px"
+                                    height="40px"></td>
+                            <td>{{ $software->version }}
+                            </td>
+                            <td>{{ $software->license_key }}</td>
+                            <td>{{ $software->usage_count }}</td>
+                            <td>{{ $software->start }}</td>
+                            <td>{{ $software->end }}</td>
+                            <td>{{ $software->license_price }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item"
+                                            href="{{ route('software.listDeviceUsage', $software->id) }}"><i
+                                                class="fas fa-laptop"></i> Thiết bị sử dụng</a>
+                                        <a class="dropdown-item" href="{{ route('software.edit', $software->id) }}"><i
+                                                class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                        <a class="dropdown-item" href="{{ route('software.delete', $software->id) }}"
+                                            onclick="return myFunction();"><i class="bx bx-trash me-1"></i>
+                                            Xóa</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $softwares->links() }}
         </div>
     </div>
-    <div class="d-flex justify-content-center mt-4">
-        {{ $softwares->links() }}
-    </div>
-</div>
-@endsection
+    @endsection

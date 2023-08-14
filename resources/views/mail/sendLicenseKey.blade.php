@@ -20,7 +20,7 @@
 
                     </tr>
                 </thead>
-                <tbody class="table-border-bottom-0">
+                <tbody>
                     @foreach ( $user->software_info as $key => $software )
                     <tr>
                         <td>{{ $key + 1 }}</td>

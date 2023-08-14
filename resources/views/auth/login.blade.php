@@ -144,8 +144,9 @@
                                     </label>
                                     <label>
                                         @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
+                                        <a href="{{ route('forget.password.get') }}">
+
+                                            <small>{{ __('Forgot Your Password?') }}</small>
                                         </a>
                                         @endif
                                     </label>

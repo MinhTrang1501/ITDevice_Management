@@ -34,8 +34,8 @@
                 <button type="button" class="btn btn-outline-primary">Thu hồi thiết bị</button>
             </a> --}}
         </div>
-        <div class="table-responsive ">
-            <table class="table table-hover table-striped">
+        <div class="table-responsive table--no-card m-b-40">
+            <table class="table table-borderless table-striped table-earning">
                 <thead>
                     <tr>
                         <th>STT</th>
@@ -48,7 +48,7 @@
                         <th>Đã lấy</th>
                     </tr>
                 </thead>
-                <tbody class="table-border-bottom-0">
+                <tbody>
                     @foreach ( $requests as $key => $req )
                     <tr>
                         <td>{{ $key + 1 }}</td>

@@ -134,12 +134,9 @@
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
-                                        @if(Auth::user()->image)
                                         <a href="#">
                                             <img src="{{ asset('image/user/' . Auth::user()->image)}}" alt="avatar " />
                                         </a>
-
-                                        @endif
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
