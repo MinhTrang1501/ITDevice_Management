@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                        <img src="image/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                     </div>
                                     <div class="content">
                                         <h6>Michelle Moreno</h6>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                        <img src="image/icon/avatar-04.jpg" alt="Diane Myers" />
                                     </div>
                                     <div class="content">
                                         <h6>Diane Myers</h6>
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                        <img src="image/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                        <img src="image/icon/avatar-05.jpg" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                        <img src="image/icon/avatar-04.jpg" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -125,7 +125,7 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image avatar-online">
-                                <img src="{{ asset('image/user/' . Auth::user()->image) || ''}}" alt="avatar" />
+                                <img src="{{ asset('image/user/' . Auth::user()->image)}}" alt="avatar" />
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#">{{ Auth::user()->name ? Auth::user()->name : 'Admin'
@@ -134,10 +134,12 @@
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
+                                        @if(Auth::user()->image)
                                         <a href="#">
-                                            <img src="{{ asset('image/user/' . Auth::user()->image) || ''}}"
-                                                alt="avatar " />
+                                            <img src="{{ asset('image/user/' . Auth::user()->image)}}" alt="avatar " />
                                         </a>
+
+                                        @endif
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
@@ -174,12 +176,11 @@
                                     {{-- <i class="zmdi zmdi-power"> --}}
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                                <span class="align-center">
-                                                    Đăng
-                                                    xuất</span>
-                                            </a>
+                                            <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                <i class="bx bx-power-off me-2"></i>
+                                                <span class="align-middle">{{ __('Đăng xuất') }}</span>
+                                            </x-responsive-nav-link>
                                         </form>
                                 </div>
                             </div>

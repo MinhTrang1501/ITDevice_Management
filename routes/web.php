@@ -26,9 +26,9 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('home');
+})->middleware('login');
 
 Auth::routes();
 
@@ -37,7 +37,7 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::get('/', [HomeController::class, 'index'])->middleware('login')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('login')->name('home');
 Route::get('/get-devices-info', [HomeApiController::class, 'getDevicesInfo'])->middleware('login', 'can:isAdmin')->name('getDevicesInfo');
 Route::get('/get-requests-info', [HomeApiController::class, 'getRequestsInfo'])->middleware('login', 'can:isAdmin')->name('getRequestsInfo');
 Route::get('/get-requests-by-day', [HomeApiController::class, 'getRequestByDay'])->middleware('login', 'can:isAdmin')->name('getRequestByDay');
