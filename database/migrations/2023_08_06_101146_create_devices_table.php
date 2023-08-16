@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('color');
             $table->double('purchase_price');
             $table->tinyInteger('status')->default(1);
-            $table->tinyInteger('configuration')->default(1);
+            $table->longText('configuration');
             $table->tinyInteger('condition')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();

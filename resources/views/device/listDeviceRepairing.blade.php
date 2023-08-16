@@ -32,6 +32,7 @@
                             <th>Cấu hình</th>
                             <th>Tình trạng</th>
                             <th>Giá nhập</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,14 +62,14 @@
                             <td>{{ $device->purchase_price }}</td>
                             <td>
                                 <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    <button class="item" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" data-placement="top" title="More">
+                                        <i class="zmdi zmdi-more"></i>
                                     </button>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item"
                                             href="{{ route('repair.repairDeviceForm', $device->id) }}"><i
-                                                class="bx bx-edit-alt me-1"></i> Đã sửa chữa
+                                                class="zmdi zmdi-edit mr-1"></i> Đã sửa chữa
                                             xong</a>
 
                                     </div>

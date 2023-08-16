@@ -83,11 +83,11 @@
                             <td>
 
                                 <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    <button class="item" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" data-placement="top" title="More">
+                                        <i class="zmdi zmdi-more"></i>
                                     </button>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item"
                                             href="{{ route('device.detailDeviceWarrantiedOrRepaired', $device->id) }}"><i
                                                 class="far fa-eye me-1"></i> Xem chi
@@ -97,27 +97,27 @@
 
                                         <a class="dropdown-item"
                                             href="{{ route('warranty.warrantyDeviceForm', $device->id) }}"><i
-                                                class="bx bx-edit-alt me-1"></i> Đã BH xong</a>
+                                                class="zmdi zmdi-edit mr-1"></i> Đã BH xong</a>
                                         @endif
                                         @if($device->condition === 0)
 
                                         <a class="dropdown-item"
                                             href="{{ route('warranty.warrantyDevice', $device->id) }}"><i
-                                                class="bx bx-edit-alt me-1"></i> Đã mang đi BH</a>
+                                                class="zmdi zmdi-edit mr-1"></i> Đã mang đi BH</a>
                                         @endif
                                         @else
                                         @if($device->condition === 0)
 
                                         <a class="dropdown-item"
                                             href="{{ route('repair.repairDevice', $device->id) }}"><i
-                                                class="bx bx-edit-alt me-1"></i> Đã mang đi
+                                                class="zmdi zmdi-edit mr-1"></i> Đã mang đi
                                             sửa chữa</a>
                                         @endif
                                         @if($device->condition === 2)
 
                                         <a class="dropdown-item"
                                             href="{{ route('repair.repairDeviceForm', $device->id) }}"><i
-                                                class="bx bx-edit-alt me-1"></i> Đã sửa chữa
+                                                class="zmdi zmdi-edit mr-1"></i> Đã sửa chữa
                                             xong</a>
                                         @endif
 

@@ -32,6 +32,7 @@
                             <th>Trạng thái</th>
                             <th>Tình trạng</th>
                             <th>Giá nhập</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,27 +69,26 @@
                             <td>{{ $device->purchase_price }}</td>
                             <td>
                                 <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    <button class="item" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" data-placement="top" title="More">
+                                        <i class="zmdi zmdi-more"></i>
                                     </button>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item"
                                             href="{{ route('device.listSoftwareUsage', $device->id) }}">
-                                            <i class="fab fa-app-store-ios" style="color: #73b856;"></i> Phần mềm được
+                                            <i class="fab fa-app-store-ios mr-1"></i> Phần mềm được
                                             cấp</a>
                                         <a class="dropdown-item" href="{{ route('device.edit', $device->id) }}">
-                                            <i class="bx bx-edit-alt me-1" style="color: #2f5dac;"></i> Sửa</a>
+                                            <i class="zmdi zmdi-edit mr-1"></i>
+                                            Sửa</a>
                                         <a class="dropdown-item" href="{{ route('device.delete', $device->id) }}"
-                                            onclick="return myFunction();"><i class="bx bx-trash me-1"
-                                                style="color: #2f5dac;"></i>
+                                            onclick="return myFunction();"><i class="zmdi zmdi-delete mr-1"></i></i>
                                             Xóa</a>
                                         @if ($device->status === 1)
                                         <a class="dropdown-item"
                                             href="{{ route('device.liquidationForm', $device->id) }}">
-                                            <i class="fas fa-dollar-sign" style="color: #2f5dac;"></i>
+                                            <i class="fas fa-dollar-sign mr-1" style="color: #2f5dac;"></i>
                                             Thanh lý</a>
-
                                         @endif
                                         @if($device->status == 0)
                                         <a class="dropdown-item"
@@ -97,7 +97,6 @@
                                             <i class="bx bx-edit-alt me-1" style="color: #2f5dac;"></i>
                                             Cập nhật có sẵn</a>
                                         @endif
-
                                     </div>
                                 </div>
                             </td>

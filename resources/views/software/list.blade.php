@@ -32,6 +32,7 @@
                             <th>Ngày bắt đầu</th>
                             <th>Ngày hết hạn</th>
                             <th>Giá bản quyền</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,18 +51,18 @@
                             <td>{{ $software->license_price }}</td>
                             <td>
                                 <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                        data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    <button class="item" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" data-placement="top" title="More">
+                                        <i class="zmdi zmdi-more"></i>
                                     </button>
-                                    <div class="dropdown-menu">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item"
                                             href="{{ route('software.listDeviceUsage', $software->id) }}"><i
                                                 class="fas fa-laptop"></i> Thiết bị sử dụng</a>
                                         <a class="dropdown-item" href="{{ route('software.edit', $software->id) }}"><i
-                                                class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                                class="zmdi zmdi-edit mr-1"></i> Sửa</a>
                                         <a class="dropdown-item" href="{{ route('software.delete', $software->id) }}"
-                                            onclick="return myFunction();"><i class="bx bx-trash me-1"></i>
+                                            onclick="return myFunction();"><i class="zmdi zmdi-delete mr-1"></i>
                                             Xóa</a>
                                     </div>
                                 </div>

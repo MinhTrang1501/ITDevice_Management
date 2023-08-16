@@ -79,7 +79,7 @@
                                             data-bs-toggle="dropdown">
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
-                                        <div class="dropdown-menu">
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             @if($req->status != 1)
                                             <a class="dropdown-item"
                                                 href="{{ route('request.approveRequest', $req->id) }}"

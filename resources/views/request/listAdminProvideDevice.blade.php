@@ -46,6 +46,7 @@
                         <th>Trạng thái</th>
                         <th>Kết quả</th>
                         <th>Đã lấy</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -103,11 +104,11 @@
                         @endif
                         <td>
                             <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                <button class="item" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" data-placement="top" title="More">
+                                    <i class="zmdi zmdi-more"></i>
                                 </button>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                     @if($req->type === 4)
                                     <a class="dropdown-item" href="{{ route('request.formDelivered', $req->id) }}"><i
