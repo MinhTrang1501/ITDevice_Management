@@ -186,7 +186,13 @@
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-outline-primary" onclick="return confirmAction();">Thêm</button>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+
+                        <button type="submit" class="btn btn-outline-primary" onclick="return confirmAction();">Xác
+                            nhận</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

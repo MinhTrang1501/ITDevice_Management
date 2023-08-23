@@ -118,7 +118,7 @@
                                 <button class="btn btn-outline-primary dropdown-toggle" type="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">Chọn thiết bị</button>
                                 @if($devices->count() > 0)
-                                <ul class="dropdown-menu">
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <select name="device_id[]" class="form-select" id="exampleFormControlSelect1"
                                         style="width: 300px" aria-label="Default select example"
                                         onchange="updateSelectedDevices()" multiple>
@@ -148,7 +148,13 @@
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-outline-primary" onclick="return confirmAction();">Cấp</button>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+
+                        <button type="submit" class="btn btn-outline-primary"
+                            onclick="return confirmAction();">Cấp</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -156,38 +162,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-{{-- <script>
-    var selectedDevices = [];
-
-    function updateSelectedDevices(selectedOption) {
-        var deviceId = selectedOption.value;
-        var deviceName = selectedOption.text;
-
-        if (selectedDevices.includes(deviceId)) {
-            selectedDevices.splice(selectedDevices.indexOf(deviceId), 1);
-        } else {
-            selectedDevices.push(deviceId);
-        }
-
-        var selectedDevicesText = selectedDevices.map(function(deviceId) {
-            return $('#exampleFormControlSelect1 option[value="' + deviceId + '"]').text();
-        }).join(", ");
-
-        $('#selected_devices').val(selectedDevicesText);
-        $('#exampleFormControlSelect1').val(selectedDevices);
-        console.log(selectedDevicesText)
-    }
-</script> --}}
-
-{{-- <script>
-    $('form').on('submit', function(e) {
-        e.preventDefault();
-        var deviceIds = $('#exampleFormControlSelect1').val();
-        $('#selected_devices').val(deviceIds);
-        $(this).unbind('submit').submit();
-    });
-
-</script> --}}
 
 <script>
     var selectedDevices = [];

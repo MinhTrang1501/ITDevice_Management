@@ -48,22 +48,22 @@
                             <td>{{ $device->configuration }}</td>
                             <td>
                                 @if ($device->status === 0)
-                                <span class="badge bg-label-warning me-1">Không có sẵn</span>
+                                <span class="badge badge-warning">Không có sẵn</span>
                                 @else
-                                <span class="badge bg-label-success me-1">Có sẵn</span>
+                                <span class="badge badge-success">Có sẵn</span>
                                 @endif
                             </td>
                             <td>
                                 @if ($device->condition === 1)
-                                <span class="badge bg-label-success me-1">Bình thường</span>
+                                <span class="badge badge-success">Bình thường</span>
                                 @elseif ($device->condition === 0)
-                                <span class="badge bg-label-warning me-1">Đang hỏng</span>
+                                <span class="badge badge-danger">Đang hỏng</span>
                                 @elseif ($device->condition === 2)
-                                <span class="badge bg-label-warning me-1">Đang sửa chữa</span>
+                                <span class="badge badge-secondary">Đang sửa chữa</span>
                                 @elseif ($device->condition === 3)
-                                <span class="badge bg-label-warning me-1">Đang bảo hành</span>
+                                <span class="badge badge-secondary">Đang bảo hành</span>
                                 @else
-                                <span class="badge bg-label-info me-1">Không xác định</span>
+                                <span class="badge badge-info">Không xác định</span>
                                 @endif
                             </td>
                             <td>{{ $device->purchase_price }}</td>
@@ -74,10 +74,10 @@
                                         <i class="zmdi zmdi-more"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item"
+                                        {{-- <a class="dropdown-item"
                                             href="{{ route('device.listSoftwareUsage', $device->id) }}">
                                             <i class="fab fa-app-store-ios mr-1"></i> Phần mềm được
-                                            cấp</a>
+                                            cấp</a> --}}
                                         <a class="dropdown-item" href="{{ route('device.edit', $device->id) }}">
                                             <i class="zmdi zmdi-edit mr-1"></i>
                                             Sửa</a>

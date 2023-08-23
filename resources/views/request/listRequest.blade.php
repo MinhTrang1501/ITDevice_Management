@@ -60,45 +60,45 @@
                             @if ($req->type == 0)
                             <span class="badge bg-label-primary me-1">Trả thiết bị</span>
                             @elseif ($req->type == 1)
-                            <span class="badge bg-label-success me-1">Mượn thiết bị</span>
+                            <span class="badge badge-success">Mượn thiết bị</span>
                             @elseif ($req->type == 2)
-                            <span class="badge bg-label-warning me-1">Báo hỏng</span>
+                            <span class="badge badge-warning">Báo hỏng</span>
                             @elseif ($req->type == 3)
-                            <span class="badge bg-label-info me-1">Gia hạn phần mềm</span>
+                            <span class="badge badge-info">Gia hạn phần mềm</span>
                             @elseif ($req->type == 4)
-                            <span class="badge bg-label-info me-1">Cấp thiết bị</span>
+                            <span class="badge badge-info">Cấp thiết bị</span>
                             @else
-                            <span class="badge bg-label-warning me-1">Không xác định</span>
+                            <span class="badge badge-warning">Không xác định</span>
                             @endif
                         </td>
                         <td>{{ $req->note }}</td>
                         <td>{{ $req->created_at }}</td>
                         <td>@if ($req->status == 0)
-                            <span class="badge bg-label-warning me-1">Chưa xử lý</span>
+                            <span class="badge badge-warning">Chưa xử lý</span>
                             @elseif ($req->status == 1)
-                            <span class="badge bg-label-success me-1">Đã xử lý</span>
+                            <span class="badge badge-success">Đã xử lý</span>
                             @else
-                            <span class="badge bg-label-warning me-1">Không xác định</span>
+                            <span class="badge badge-warning">Không xác định</span>
                             @endif
                         </td>
                         <td>@if ($req->result === 0)
-                            <span class="badge bg-label-warning me-1">Từ chối</span>
+                            <span class="badge badge-warning">Từ chối</span>
                             @elseif ($req->result == 1)
-                            <span class="badge bg-label-success me-1">Đồng ý</span>
+                            <span class="badge badge-success">Đồng ý</span>
                             @else
-                            <span class="badge bg-label-warning me-1">Chưa xử lý</span>
+                            <span class="badge badge-warning">Chưa xử lý</span>
                             @endif
                         </td>
                         @if($req->type == 4 || $req->type == 0)
 
                         <td>@if ($req->confirm === 0)
-                            <span class="badge bg-label-warning me-1">Chưa lấy</span>
+                            <span class="badge badge-warning">Chưa lấy</span>
                             @elseif ($req->confirm === 1)
-                            <span class="badge bg-label-success me-1">Đã lấy</span>
+                            <span class="badge badge-success">Đã lấy</span>
                             @elseif ($req->confirm === 2)
-                            <span class="badge bg-label-success me-1">Đã trả</span>
+                            <span class="badge badge-success">Đã trả</span>
                             @else
-                            <span class="badge bg-label-warning me-1">Không xác định</span>
+                            <span class="badge badge-warning">Không xác định</span>
                             @endif
                         </td>
                         @else

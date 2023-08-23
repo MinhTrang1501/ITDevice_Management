@@ -53,15 +53,15 @@
                             <td>{{ $device->device->configuration }}</td>
                             <td>
                                 @if ($device->device->condition === 1)
-                                <span class="badge bg-label-success me-1">Bình thường</span>
+                                <span class="badge badge-success">Bình thường</span>
                                 @elseif ($device->device->condition === 0)
-                                <span class="badge bg-label-warning me-1">Đang hỏng</span>
+                                <span class="badge badge-danger">Đang hỏng</span>
                                 @elseif ($device->device->condition === 2)
-                                <span class="badge bg-label-warning me-1">Đang sửa chữa</span>
+                                <span class="badge badge-secondary">Đang sửa chữa</span>
                                 @elseif ($device->device->condition === 3)
-                                <span class="badge bg-label-warning me-1">Đang bảo hành</span>
+                                <span class="badge badge-secondary">Đang bảo hành</span>
                                 @else
-                                <span class="badge bg-label-info me-1">Không xác định</span>
+                                <span class="badge badge-info">Không xác định</span>
                                 @endif
                             </td>
                             <td>{{ $device->device->purchase_price }}</td>

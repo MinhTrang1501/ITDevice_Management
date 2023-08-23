@@ -40,18 +40,18 @@
                             <td>{{ $key + 1 }}</td>
                             <td><strong>{{ $user->name }}</strong></td>
                             <td>{{ $user->email }}</td>
-                            <td><img src="{{ asset('image/user' . $user->image) }}" alt=""></td>
+                            <td><img src="{{ asset('image/user/' . $user->image) }}" alt=""></td>
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->address }}</td>
                             <td>
                                 @if ($user->role == 0)
                                 <span class="badge bg-label-primary me-1">Nhân viên</span>
                                 @elseif ($user->role == 1)
-                                <span class="badge bg-label-success me-1">Quản lý</span>
+                                <span class="badge badge-success">Quản lý</span>
                                 @elseif ($user->role == 2)
-                                <span class="badge bg-label-info me-1">Giám đốc</span>
+                                <span class="badge badge-info">Giám đốc</span>
                                 @else
-                                <span class="badge bg-label-warning me-1">Không xác định</span>
+                                <span class="badge badge-warning">Không xác định</span>
                                 @endif
                             </td>
                             <td>{{ $user->department->name ?? '' }}</td>

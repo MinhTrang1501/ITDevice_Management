@@ -29,7 +29,6 @@
                             <th>Màu sắc</th>
                             <th>Cấu hình</th>
                             <th>Tình trạng</th>
-                            <th>Giá trị</th>
                             <th>Ngày mượn</th>
                             <th>Ngày dự kiến trả</th>
                             <th></th>
@@ -48,18 +47,17 @@
 
                             <td>
                                 @if ($device->device->condition === 1)
-                                <span class="badge bg-label-success me-1">Bình thường</span>
+                                <span class="badge badge-success">Bình thường</span>
                                 @elseif ($device->device->condition === 0)
-                                <span class="badge bg-label-warning me-1">Đang hỏng</span>
+                                <span class="badge badge-danger">Đang hỏng</span>
                                 @elseif ($device->device->condition === 2)
-                                <span class="badge bg-label-warning me-1">Đang sửa chữa</span>
+                                <span class="badge badge-secondary">Đang sửa chữa</span>
                                 @elseif ($device->device->condition === 3)
-                                <span class="badge bg-label-warning me-1">Đang bảo hành</span>
+                                <span class="badge badge-secondary">Đang bảo hành</span>
                                 @else
-                                <span class="badge bg-label-info me-1">Không xác định</span>
+                                <span class="badge badge-info">Không xác định</span>
                                 @endif
                             </td>
-                            <td>{{ $device->device->purchase_price }}</td>
                             <td>{{ $device->useHistory->borrowed_date ?? '' }}</td>
                             <td>{{ $device->useHistory->return_date ?? '' }}</td>
                             <td>
@@ -69,13 +67,13 @@
                                         <i class="zmdi zmdi-more"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item"
+                                        {{-- <a class="dropdown-item"
                                             href="{{ route('request.showBorrowFormLicensekey', $device->device->id) }}"><i
                                                 class="zmdi zmdi-edit mr-1"></i> Yêu cầu
-                                            cấp license key</a>
+                                            cấp license key</a> --}}
                                         <a class="dropdown-item"
                                             href="{{ route('request.reportDeviceBroken', $device->device->id) }}"
-                                            onclick="return confirmAction();"><i class="bx bx-edit-alt me-1"></i> Báo
+                                            onclick="return confirmAction();"><i class="zmdi zmdi-edit mr-1"></i> Báo
                                             hỏng</a>
                                         <a class="dropdown-item"
                                             href="{{ route('request.sendReturnRequest', $device->device->id) }}"
@@ -84,7 +82,7 @@
                                     </div>
                                 </div>
 
-                                <div class="dropdown">
+                                {{-- <div class="dropdown">
                                     <button class="item" id="dropdownMenuButton" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" data-placement="top" title="More">
                                         <i class="zmdi zmdi-more"></i>
@@ -104,7 +102,7 @@
                                             onclick="return confirmAction();"><i class="zmdi zmdi-delete mr-1"></i>
                                             Trả thiết bị</a>
                                     </div>
-                                </div>
+                                </div> --}}
                             </td>
                         </tr>
                         @endforeach

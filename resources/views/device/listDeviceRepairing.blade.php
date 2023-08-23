@@ -31,7 +31,6 @@
                             <th>Màu sắc</th>
                             <th>Cấu hình</th>
                             <th>Tình trạng</th>
-                            <th>Giá nhập</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -48,18 +47,17 @@
                             <td>{{ $device->configuration }}</td>
                             <td>
                                 @if ($device->condition === 1)
-                                <span class="badge bg-label-success me-1">Bình thường</span>
+                                <span class="badge badge-success">Bình thường</span>
                                 @elseif ($device->condition === 0)
-                                <span class="badge bg-label-warning me-1">Đang hỏng</span>
+                                <span class="badge badge-danger">Đang hỏng</span>
                                 @elseif ($device->condition === 2)
-                                <span class="badge bg-label-warning me-1">Đang sửa chữa</span>
+                                <span class="badge badge-secondary">Đang sửa chữa</span>
                                 @elseif ($device->condition === 3)
-                                <span class="badge bg-label-warning me-1">Đang bảo hành</span>
+                                <span class="badge badge-secondary">Đang bảo hành</span>
                                 @else
-                                <span class="badge bg-label-info me-1">Không xác định</span>
+                                <span class="badge badge-info">Không xác định</span>
                                 @endif
                             </td>
-                            <td>{{ $device->purchase_price }}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="item" id="dropdownMenuButton" data-toggle="dropdown"

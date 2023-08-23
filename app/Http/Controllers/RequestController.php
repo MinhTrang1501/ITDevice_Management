@@ -44,6 +44,7 @@ class RequestController extends Controller
                 return back()->with('error', 'Gửi yêu cầu k thành công.');
             }
         } catch (Exception $exception) {
+            dd($exception);
             return back()->with('error', 'Lỗi');
         }
     }
