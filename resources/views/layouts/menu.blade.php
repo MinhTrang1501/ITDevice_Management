@@ -6,7 +6,7 @@ $categories = App\Models\category::all();
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{ route('home') }}">
-            <img src="/image/icon/logomain.png" style="max-height: 75px" alt="Logo" />
+            <img src="/image/icon/logomain.png" style="max-height: 66px" alt="Logo" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
