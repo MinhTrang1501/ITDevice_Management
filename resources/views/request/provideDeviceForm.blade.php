@@ -115,13 +115,14 @@
                         <div class="col-sm-10">
 
                             <div class="input-group input-group-merge">
-                                <button class="btn btn-outline-primary dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">Chọn thiết bị</button>
+                                <button class="btn btn-outline-primary dropdown-toggle button-select" type="button"
+                                    onClick="handleChangeSelect()" data-bs-toggle="dropdown" aria-expanded="false">Chọn
+                                    thiết bị</button>
                                 @if($devices->count() > 0)
-                                <ul class="dropdown-menu">
-                                    <select name="device_id[]" class="form-select" id="exampleFormControlSelect1"
-                                        style="width: 300px" aria-label="Default select example"
-                                        onchange="updateSelectedDevices()" multiple>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <select name="device_id[]" class="form-select select-device display-none"
+                                        id="exampleFormControlSelect1" style="width: 300px"
+                                        aria-label="Default select example" onchange="updateSelectedDevices()" multiple>
 
                                         @foreach ($devices as $device)
 
@@ -148,7 +149,13 @@
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-outline-primary" onclick="return confirmAction();">Cấp</button>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+
+                        <button type="submit" class="btn btn-outline-primary"
+                            onclick="return confirmAction();">Cấp</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -156,38 +163,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-{{-- <script>
-    var selectedDevices = [];
-
-    function updateSelectedDevices(selectedOption) {
-        var deviceId = selectedOption.value;
-        var deviceName = selectedOption.text;
-
-        if (selectedDevices.includes(deviceId)) {
-            selectedDevices.splice(selectedDevices.indexOf(deviceId), 1);
-        } else {
-            selectedDevices.push(deviceId);
-        }
-
-        var selectedDevicesText = selectedDevices.map(function(deviceId) {
-            return $('#exampleFormControlSelect1 option[value="' + deviceId + '"]').text();
-        }).join(", ");
-
-        $('#selected_devices').val(selectedDevicesText);
-        $('#exampleFormControlSelect1').val(selectedDevices);
-        console.log(selectedDevicesText)
-    }
-</script> --}}
-
-{{-- <script>
-    $('form').on('submit', function(e) {
-        e.preventDefault();
-        var deviceIds = $('#exampleFormControlSelect1').val();
-        $('#selected_devices').val(deviceIds);
-        $(this).unbind('submit').submit();
-    });
-
-</script> --}}
 
 <script>
     var selectedDevices = [];
@@ -215,46 +190,10 @@
 
         $('#selected_devices').val(selectedDevicesText);
         $('#exampleFormControlSelect1').val(selectedDevicesId);
-
+    }
+    function handleChangeSelect(){
+        console.log(document.querySelector(".select-device").classList.toggle("display-block"))
     }
 </script>
-
-{{-- <script>
-    // Lắng nghe sự kiện change của select
-    const select = document.querySelector('#exampleFormControlSelect1');
-    select.addEventListener('change', (event) => {
-        // Lấy danh sách các option đã chọn
-        const selectedOptions = Array.from(event.target.selectedOptions);
-
-        // Tạo một mảng lưu trữ các giá trị id của các option đã chọn
-        const selectedIds = selectedOptions.map(option => option.value);
-
-        // Gán giá trị của selected_devices
-        const selectedDevices = document.querySelector('#selected_devices');
-        selectedDevices.value = selectedIds.join(',');
-        console.log(selectedDevices.value)
-    });
-</script> --}}
-{{-- <script>
-    const select = document.querySelector('#exampleFormControlSelect1');
-    const selectedDevices = document.querySelector('#selected_devices');
-    const selectedDeviceIds = [];
-
-    select.addEventListener('change', (event) => {
-        // Lấy danh sách các option đã chọn
-        const selectedOptions = Array.from(event.target.selectedOptions);
-
-        // Tạo một mảng lưu trữ các giá trị id của các option đã chọn
-        const selectedIds = selectedOptions.map(option => option.value);
-
-        // Cập nhật mảng selectedDeviceIds
-        selectedDeviceIds.length = 0; // reset mảng
-        selectedIds.forEach(id => selectedDeviceIds.push(id));
-
-        // Hiển thị các device_id được chọn trên thẻ input
-        selectedDevices.value = selectedDeviceIds.join(',');
-    });
-    console.log(selectedDeviceIds)
-</script> --}}
 
 @endsection

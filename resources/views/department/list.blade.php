@@ -19,44 +19,48 @@
         <h4 class="alert alert-danger">{{ session('alert') }}</h4>
     </div>
     @endif
-    <div class="card">
-        <h5 class="card-header">Dánh sách phòng ban</h5>
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tên phòng</th>
-                        <th>Người quản lý</th>
-                        <th>Địa chỉ</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    @foreach ( $departments as $key => $department )
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td><strong>{{ $department->name }}</strong></td>
-                        <td>{{ $department->manager }}</td>
-                        <td>{{ $department->address }}</td>
-                        <td>
-                            <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                    data-bs-toggle="dropdown">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('department.edit', $department->id) }}"><i
-                                            class="bx bx-edit-alt me-1"></i> Sửa</a>
-                                    <a class="dropdown-item" href="{{ route('department.delete', $department->id) }}"
-                                        onclick="return myFunction();"><i class="bx bx-trash me-1"></i>
-                                        Xóa</a>
+    <div class="row m-t-30">
+        <div class="col-md-12">
+            <div class="table-responsive text-nowrap table--no-card m-b-40">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên phòng</th>
+                            <th>Người quản lý</th>
+                            <th>Địa chỉ</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ( $departments as $key => $department )
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td><strong>{{ $department->name }}</strong></td>
+                            <td>{{ $department->manager }}</td>
+                            <td>{{ $department->address }}</td>
+                            <td>
+                                <div class="table-data-feature">
+                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <a class="dropdown-item" href="{{ route('department.edit', $department->id) }}">
+                                            <i class="zmdi zmdi-edit"></i>
+                                        </a>
+                                    </button>
+
+                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <a class="dropdown-item"
+                                            href="{{ route('department.delete', $department->id) }}"
+                                            onclick="return myFunction();">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </a>
+                                    </button>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="d-flex justify-content-center mt-4">

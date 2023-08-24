@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="description" content="au theme template" />
-    <meta name="author" content="Thu Trang" />
+    <meta name="author" content="Minh Trang" />
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
@@ -66,6 +66,10 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="animsition">
@@ -76,7 +80,7 @@
           <div class="container-fluid">
             <div class="header-mobile-inner">
               <a class="logo" href="index.html">
-                <img src="images/icon/logo.png" alt="CoolAdmin" />
+                <img src="image/icon/logo.png" alt="CoolAdmin" />
               </a>
               <button class="hamburger hamburger--slider" type="button">
                 <span class="hamburger-box">
@@ -195,7 +199,7 @@
       <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
           <a href="#">
-            <img src="images/icon/logo.png" alt="Cool Admin" />
+            <img src="image/icon/logo.png" alt="Cool Admin" />
           </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -333,7 +337,7 @@
                         <div class="mess__item">
                           <div class="image img-cir img-40">
                             <img
-                              src="images/icon/avatar-06.jpg"
+                              src="image/icon/avatar-06.jpg"
                               alt="Michelle Moreno"
                             />
                           </div>
@@ -346,7 +350,7 @@
                         <div class="mess__item">
                           <div class="image img-cir img-40">
                             <img
-                              src="images/icon/avatar-04.jpg"
+                              src="image/icon/avatar-04.jpg"
                               alt="Diane Myers"
                             />
                           </div>
@@ -371,7 +375,7 @@
                         <div class="email__item">
                           <div class="image img-cir img-40">
                             <img
-                              src="images/icon/avatar-06.jpg"
+                              src="image/icon/avatar-06.jpg"
                               alt="Cynthia Harvey"
                             />
                           </div>
@@ -383,7 +387,7 @@
                         <div class="email__item">
                           <div class="image img-cir img-40">
                             <img
-                              src="images/icon/avatar-05.jpg"
+                              src="image/icon/avatar-05.jpg"
                               alt="Cynthia Harvey"
                             />
                           </div>
@@ -395,7 +399,7 @@
                         <div class="email__item">
                           <div class="image img-cir img-40">
                             <img
-                              src="images/icon/avatar-04.jpg"
+                              src="image/icon/avatar-04.jpg"
                               alt="Cynthia Harvey"
                             />
                           </div>
@@ -452,7 +456,7 @@
                   <div class="account-wrap">
                     <div class="account-item clearfix js-item-menu">
                       <div class="image">
-                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                        <img src="image/icon/avatar-01.jpg" alt="John Doe" />
                       </div>
                       <div class="content">
                         <a class="js-acc-btn" href="#">john doe</a>
@@ -462,7 +466,7 @@
                           <div class="image">
                             <a href="#">
                               <img
-                                src="images/icon/avatar-01.jpg"
+                                src="image/icon/avatar-01.jpg"
                                 alt="John Doe"
                               />
                             </a>
@@ -1185,14 +1189,42 @@
                               >
                                 <i class="zmdi zmdi-delete"></i>
                               </button>
-                              <button
+                              <div class="dropdown">
+                                <!-- <button
                                 class="item"
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 title="More"
                               >
                                 <i class="zmdi zmdi-more"></i>
-                              </button>
+                              </button> -->
+
+                                <button
+                                  class="item"
+                                  id="dropdownMenuButton"
+                                  data-toggle="dropdown"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                  data-placement="top"
+                                  title="More"
+                                >
+                                  <i class="zmdi zmdi-more"></i>
+                                </button>
+                                <div
+                                  class="dropdown-menu"
+                                  aria-labelledby="dropdownMenuButton"
+                                >
+                                  <a class="dropdown-item" href="#"
+                                    >Tùy chọn 1</a
+                                  >
+                                  <a class="dropdown-item" href="#"
+                                    >Tùy chọn 2</a
+                                  >
+                                  <a class="dropdown-item" href="#"
+                                    >Tùy chọn 3</a
+                                  >
+                                </div>
+                              </div>
                             </div>
                           </td>
                         </tr>

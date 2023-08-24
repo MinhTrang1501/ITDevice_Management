@@ -9,8 +9,8 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="table-responsive text-wrap">
-                        <table class="table table-hover table-striped">
+                    <div class="table-responsive table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
                                     <th>Tên thiết bị</th>
@@ -24,7 +24,7 @@
                                     <th>Số lần sửa chữa</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-border-bottom-0">
+                            <tbody>
                                 <tr>
                                     <td><strong>{{ $device->name }}</strong></td>
                                     <td><img src="{{ asset('image/device/' . $device->image) }}" alt="" width="40px"
@@ -34,15 +34,15 @@
                                     <td>{{ $device->configuration }}</td>
                                     <td>
                                         @if ($device->condition === 1)
-                                        <span class="badge bg-label-success me-1">Bình thường</span>
+                                        <span class="badge badge-success">Bình thường</span>
                                         @elseif ($device->condition === 0)
-                                        <span class="badge bg-label-warning me-1">Đang hỏng</span>
+                                        <span class="badge badge-danger">Đang hỏng</span>
                                         @elseif ($device->condition === 2)
-                                        <span class="badge bg-label-warning me-1">Đang sửa chữa</span>
+                                        <span class="badge badge-secondary">Đang sửa chữa</span>
                                         @elseif ($device->condition === 3)
-                                        <span class="badge bg-label-warning me-1">Đang bảo hành</span>
+                                        <span class="badge badge-secondary">Đang bảo hành</span>
                                         @else
-                                        <span class="badge bg-label-info me-1">Không xác định</span>
+                                        <span class="badge badge-info">Không xác định</span>
                                         @endif
                                     </td>
                                     <td>{{ $device->purchase_price }}</td>
@@ -73,8 +73,8 @@
                     <h5 class="mb-0">Thông tin bảo hành</h5>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive text-wrap">
-                        <table class="table table-hover table-striped">
+                    <div class="table-responsive text-wrap table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
                                     <th>Lần</th>
@@ -84,7 +84,7 @@
                                     <th>Ngày bảo hành xong</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-border-bottom-0">
+                            <tbody>
                                 @foreach($deviceWarrantied->warrantyDetails as $key => $warrantyDetail)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
@@ -112,8 +112,8 @@
                     <h5 class="mb-0">Thông tin sửa chữa</h5>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive text-wrap">
-                        <table class="table table-hover table-striped">
+                    <div class="table-responsive text-wrap table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
                             <thead>
                                 <tr>
                                     <th>Lần</th>
@@ -125,7 +125,7 @@
                                     <th>Ngày sửa chữa xong</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-border-bottom-0">
+                            <tbody>
                                 @foreach($deviceRepaired->repairs as $key => $repairs)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>

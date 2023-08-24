@@ -6,7 +6,7 @@ $categories = App\Models\category::all();
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="{{ route('home') }}">
-            <img src="images/icon/logo.png" alt="Cool Admin" />
+            <img src="/image/icon/logomain.png" style="max-height: 75px" alt="Logo" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
@@ -17,6 +17,8 @@ $categories = App\Models\category::all();
                         <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
 
+                @if (Auth::user()->role != 0)
+                @if (Auth::user()->role == 2)
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="menu-icon far fa-building"></i>Phòng ban</a>
@@ -26,6 +28,20 @@ $categories = App\Models\category::all();
                         </li>
                         <li>
                             <a href="{{ route('department.create') }}">Thêm phòng ban</a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
+
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="menu-icon fas fa-outdent"></i>Quản lý danh mục</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="{{ route('category.index') }}">Danh sách danh mục</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('category.create') }}">Thêm danh mục mới</a>
                         </li>
                     </ul>
                 </li>
@@ -50,19 +66,6 @@ $categories = App\Models\category::all();
 
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="menu-icon fas fa-outdent"></i>Quản lý danh mục</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="{{ route('category.index') }}">Danh sách danh mục</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('category.create') }}">Thêm danh mục mới</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
                         <i class="menu-icon far fa-share-square"></i>Quản lý yêu cầu</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
@@ -71,9 +74,6 @@ $categories = App\Models\category::all();
                         <li>
                             <a href="{{route('request.listRequestBorrow')}}">Yêu cầu mượn thiết bị</a>
                         </li>
-                        <li>
-                            <a href="{{route('request.listAdminProvideDevice')}}">Cấp thiết bị</a>
-                        </li>
 
                         <li>
                             <a href="{{route('request.listRequestReturn')}}">Yêu cầu trả thiết bị</a>
@@ -81,8 +81,11 @@ $categories = App\Models\category::all();
                         <li>
                             <a href="{{route('request.listRequestBroken')}}">Báo hỏng thiết bị</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('request.listRequestLicenseKey')}}">Yêu cầu cấp license key</a>
+                        </li> --}}
+                        <li>
+                            <a href="{{route('request.listAdminProvideDevice')}}">Admin cấp thiết bị</a>
                         </li>
                     </ul>
                 </li>
@@ -118,7 +121,7 @@ $categories = App\Models\category::all();
                     </ul>
                 </li>
 
-                <li class="has-sub">
+                {{-- <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="menu-icon fab fa-windows"></i>Quản lý phần mềm</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -136,8 +139,9 @@ $categories = App\Models\category::all();
                             <a href="{{ route('software.create') }}">Thêm phần mềm mới</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
+                @if (Auth::user()->role == 2)
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="menu-icon fas fa-users"></i>Quản lý người dùng</a>
@@ -150,6 +154,29 @@ $categories = App\Models\category::all();
                         </li>
                     </ul>
                 </li>
+                @endif
+
+                @else
+                <li class="has-sub">
+                    <a href="{{ route('request.listRequestByUser') }}" class="menu-link">
+                        <i class="menu-icon fas fa-stream"></i>
+                        Yêu cầu đã gửi
+                    </a>
+                </li>
+                <li class="has-sub">
+                    <a href="{{ route('request.listDeviceBorrow') }}" class="menu-link">
+                        <i class="menu-icon fas fa-laptop-code"></i>
+                        Thiết bị đang mượn
+                    </a>
+                </li>
+                <li class="has-sub">
+                    <a href="{{ route('request.showBorrowForm') }}" class="menu-link">
+                        <i class="menu-icon far fa-paper-plane"></i>
+                        Mượn thiết bị
+                    </a>
+                </li>
+
+                @endif
             </ul>
         </nav>
     </div>

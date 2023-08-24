@@ -14,9 +14,8 @@
                         <div class="col-sm-10 form-password-toggle">
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password" class="form-control" name="old_password"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    placeholder="********" aria-describedby="password" />
+                                <span class="input-group-text cursor-pointer"><i class="far fa-eye-slash"></i></span>
                                 @error('old_password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -31,9 +30,8 @@
                         <div class="col-sm-10 form-password-toggle">
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password" class="form-control" name="new_password"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    placeholder="********" aria-describedby="password" />
+                                <span class="input-group-text cursor-pointer"><i class="far fa-eye-slash"></i></span>
                                 @error('new_password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -48,9 +46,8 @@
                         <div class="col-sm-10 form-password-toggle">
                             <div class="input-group input-group-merge">
                                 <input type="password" id="password" class="form-control" name="password_confirmation"
-                                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                    aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    placeholder="********" aria-describedby="password" />
+                                <span class="input-group-text cursor-pointer"><i class="far fa-eye-slash"></i></span>
                                 @error('password_confirmation')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

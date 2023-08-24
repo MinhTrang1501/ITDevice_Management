@@ -26,9 +26,9 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('/', function () {
+    return view('home');
+})->middleware('login');
 
 Auth::routes();
 
@@ -37,7 +37,7 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::get('/', [HomeController::class, 'index'])->middleware('login')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('login')->name('home');
 Route::get('/get-devices-info', [HomeApiController::class, 'getDevicesInfo'])->middleware('login', 'can:isAdmin')->name('getDevicesInfo');
 Route::get('/get-requests-info', [HomeApiController::class, 'getRequestsInfo'])->middleware('login', 'can:isAdmin')->name('getRequestsInfo');
 Route::get('/get-requests-by-day', [HomeApiController::class, 'getRequestByDay'])->middleware('login', 'can:isAdmin')->name('getRequestByDay');
@@ -94,15 +94,15 @@ Route::prefix('softwares')->middleware('login', 'can:isAdmin')->group(function()
 
 });
 
-Route::prefix('users')->middleware('login', 'can:isSuperAdmin')->group(function(){
-    Route::get('/', [UserController::class, 'index'])->name('user.index');
-    Route::get('create', [UserController::class, 'create'])->name('user.create');
-    Route::post('store', [UserController::class, 'store'])->name('user.store');
-    Route::get('edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-    Route::put('update/{id}', [UserController::class, 'update'])->name('user.update');
-    Route::get('delete/{id}', [UserController::class, 'delete'])->name('user.delete');
-    Route::get('profile/{id}', [UserController::class, 'profile'])->name('user.profile');
-    Route::put('profile/{id}', [UserController::class, 'updateProfile'])->name('user.updateProfile');
+Route::prefix('users')->middleware('login')->group(function(){
+    Route::get('/', [UserController::class, 'index'])->middleware('can:isSuperAdmin')->name('user.index');
+    Route::get('create', [UserController::class, 'create'])->middleware('can:isSuperAdmin')->name('user.create');
+    Route::post('store', [UserController::class, 'store'])->middleware('can:isSuperAdmin')->name('user.store');
+    Route::get('edit/{id}', [UserController::class, 'edit'])->middleware('can:isSuperAdmin')->name('user.edit');
+    Route::put('update/{id}', [UserController::class, 'update'])->middleware('can:isSuperAdmin')->name('user.update');
+    Route::get('delete/{id}', [UserController::class, 'delete'])->middleware('can:isSuperAdmin')->name('user.delete');
+    Route::get('profile/{id}', [UserController::class, 'profile'])->middleware('can:isSuperAdmin')->name('user.profile');
+    Route::put('profile/{id}', [UserController::class, 'updateProfile'])->middleware('can:isSuperAdmin')->name('user.updateProfile');
     Route::get('change-password/{id}', [UserController::class, 'changePasswordForm'])->name('user.changePasswordForm');
     Route::put('change-password/{id}', [UserController::class, 'changePassword'])->name('user.changePassword');
 

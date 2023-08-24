@@ -18,42 +18,44 @@
         <h4 class="alert alert-danger">{{ session('alert') }}</h4>
     </div>
     @endif
-    <div class="card">
-        <div class="table-responsive text-wrap">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Danh mục</th>
-                        <th>Tên thiết bị</th>
-                        <th>Ảnh</th>
-                        <th>Màu sắc</th>
-                        <th>Cấu hình</th>
-                        <th>Giá thanh lý</th>
-                        <th>Ghi chú</th>
-                    </tr>
-                </thead>
-                <tbody class="table-border-bottom-0">
-                    @foreach ( $devices as $key => $device )
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td>{{ $device->category->name }}</td>
-                        <td><strong>{{ $device->name }}</strong></td>
-                        <td><img src="{{ asset('image/device/' . $device->image) }}" alt="" width="40px" height="40px">
-                        </td>
-                        <td>{{ $device->color }}</td>
-                        <td>{{ $device->configuration }}</td>
-                        <td>{{ $device->liquidation->price }}</td>
-                        <td>{{ $device->liquidation->note }}</td>
+    <div class="row m-t-30">
+        <div class="col-md-12">
+            <div class="table-responsive text-wrap table--no-card m-b-40">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Danh mục</th>
+                            <th>Tên thiết bị</th>
+                            <th>Ảnh</th>
+                            <th>Màu sắc</th>
+                            <th>Cấu hình</th>
+                            <th>Giá thanh lý</th>
+                            <th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ( $devices as $key => $device )
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $device->category->name }}</td>
+                            <td><strong>{{ $device->name }}</strong></td>
+                            <td><img src="{{ asset('image/device/' . $device->image) }}" alt="" width="40px"
+                                    height="40px">
+                            </td>
+                            <td>{{ $device->color }}</td>
+                            <td>{{ $device->configuration }}</td>
+                            <td>{{ $device->liquidation->price }}</td>
+                            <td>{{ $device->liquidation->note }}</td>
 
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $devices->links() }}
         </div>
     </div>
-    <div class="d-flex justify-content-center mt-4">
-        {{ $devices->links() }}
-    </div>
-</div>
-@endsection
+    @endsection

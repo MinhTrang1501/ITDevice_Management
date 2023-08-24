@@ -12,8 +12,8 @@
                         <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">{{ __('Tên') }}</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                                <span id="basic-icon-default-fullname2" class="input-group-text"><i
-                                        class="bx bx-user"></i></span>
+                                {{-- <span id="basic-icon-default-fullname2" class="input-group-text"><i
+                                        class="bx bx-user"></i></span> --}}
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     id="basic-icon-default-fullname" placeholder="Name" aria-label="John Doe"
                                     aria-describedby="basic-icon-default-fullname2" name="name"
@@ -31,8 +31,8 @@
                             }}</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                                <select name="department_id" class="form-select" id="exampleFormControlSelect1"
-                                    aria-label="Default select example">
+                                <select name="department_id" class="form-select form-select-lg mb-3"
+                                    id="exampleFormControlSelect1" aria-label=".form-select-lg example">
                                     @foreach ($departments as $department)
                                     <option value="{{ $department->id }}" checked>{{
                                         $department->name }}</option>
@@ -70,7 +70,7 @@
                             }}</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                                <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                                {{-- <span class="input-group-text"><i class="bx bx-envelope"></i></span> --}}
                                 <input type="text" id="basic-icon-default-email"
                                     class="form-control @error('email') is-invalid @enderror" placeholder="Email"
                                     aria-label="john.doe" aria-describedby="basic-icon-default-email2" name="email"
@@ -92,7 +92,8 @@
                                 <input type="password" id="password" class="form-control" name="password"
                                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                     aria-describedby="password" />
-                                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                {{-- <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                --}}
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -107,8 +108,8 @@
                             }}</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                                <span id="basic-icon-default-phone2" class="input-group-text"><i
-                                        class="bx bx-phone"></i></span>
+                                {{-- <span id="basic-icon-default-phone2" class="input-group-text"><i
+                                        class="bx bx-phone"></i></span> --}}
                                 <input type="text" id="basic-icon-default-phone"
                                     class="form-control phone-mask @error('phone') is-invalid @enderror"
                                     placeholder="0xx xxx xxxx" aria-label="0xx xxx xxxx"
@@ -128,8 +129,8 @@
                             }}</label>
                         <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                                <span id="basic-icon-default-phone2" class="input-group-text"><i
-                                        class="fas fa-map-marker-alt"></i></span>
+                                {{-- <span id="basic-icon-default-phone2" class="input-group-text"><i
+                                        class="fas fa-map-marker-alt"></i></span> --}}
                                 <input type="text" id="basic-icon-default-phone"
                                     class="form-control phone-mask @error('address') is-invalid @enderror"
                                     placeholder="address" aria-label="address"

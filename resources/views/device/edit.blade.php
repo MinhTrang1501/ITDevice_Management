@@ -122,8 +122,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary" onclick="return confirmAction();">Sửa</button>
 
-                <button type="submit" class="btn btn-primary" onclick="return confirmAction();">Sửa</button>
+                    </div>
+                </div>
             </form>
 
         </div>

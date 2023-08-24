@@ -3,24 +3,24 @@
         <div class="container-fluid">
             <div class="header-wrap">
                 <form class="form-header" action="" method="POST">
-                    <input class="au-input au-input--xl" type="text" name="search"
-                        placeholder="Search for datas &amp; reports..." />
-                    <button class="au-btn--submit" type="submit">
-                        <i class="zmdi zmdi-search"></i>
-                    </button>
+                    {{-- <input class="au-input au-input--xl" type="text" name="search"
+                        placeholder="Search for datas &amp; reports..." /> --}}
+                    {{-- <button class="au-btn--submit" type="submit"> --}}
+                        {{-- <i class="zmdi zmdi-search"></i> --}}
+                        {{-- </button> --}}
                 </form>
                 <div class="header-button">
                     <div class="noti-wrap">
                         <div class="noti__item js-item-menu">
-                            <i class="zmdi zmdi-comment-more"></i>
-                            <span class="quantity">1</span>
+                            {{-- <i class="zmdi zmdi-comment-more"></i> --}}
+                            {{-- <span class="quantity">1</span> --}}
                             <div class="mess-dropdown js-dropdown">
                                 <div class="mess__title">
                                     <p>You have 2 news message</p>
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                        <img src="image/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                     </div>
                                     <div class="content">
                                         <h6>Michelle Moreno</h6>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                        <img src="image/icon/avatar-04.jpg" alt="Diane Myers" />
                                     </div>
                                     <div class="content">
                                         <h6>Diane Myers</h6>
@@ -44,15 +44,15 @@
                             </div>
                         </div>
                         <div class="noti__item js-item-menu">
-                            <i class="zmdi zmdi-email"></i>
-                            <span class="quantity">1</span>
+                            {{-- <i class="zmdi zmdi-email"></i> --}}
+                            {{-- <span class="quantity">1</span> --}}
                             <div class="email-dropdown js-dropdown">
                                 <div class="email__title">
                                     <p>You have 3 New Emails</p>
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                        <img src="image/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                        <img src="image/icon/avatar-05.jpg" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                        <img src="image/icon/avatar-04.jpg" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -83,15 +83,15 @@
                             </div>
                         </div>
                         <div class="noti__item js-item-menu">
-                            <i class="zmdi zmdi-notifications"></i>
-                            <span class="quantity">3</span>
+                            {{-- <i class="zmdi zmdi-notifications"></i> --}}
+                            {{-- <span class="quantity">3</span> --}}
                             <div class="notifi-dropdown js-dropdown">
                                 <div class="notifi__title">
                                     <p>You have 3 Notifications</p>
                                 </div>
                                 <div class="notifi__item">
                                     <div class="bg-c1 img-cir img-40">
-                                        <i class="zmdi zmdi-email-open"></i>
+                                        {{-- <i class="zmdi zmdi-email-open"></i> --}}
                                     </div>
                                     <div class="content">
                                         <p>You got a email notification</p>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="notifi__item">
                                     <div class="bg-c2 img-cir img-40">
-                                        <i class="zmdi zmdi-account-box"></i>
+                                        {{-- <i class="zmdi zmdi-account-box"></i> --}}
                                     </div>
                                     <div class="content">
                                         <p>Your account has been blocked</p>
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="notifi__item">
                                     <div class="bg-c3 img-cir img-40">
-                                        <i class="zmdi zmdi-file-text"></i>
+                                        {{-- <i class="zmdi zmdi-file-text"></i> --}}
                                     </div>
                                     <div class="content">
                                         <p>You got a new file</p>
@@ -125,7 +125,7 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image avatar-online">
-                                <img src="{{ asset('image/user/' . Auth::user()->image) || ''}}" alt="avatar" />
+                                <img src="{{ asset('image/user/' . Auth::user()->image)}}" alt="avatar" />
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#">{{ Auth::user()->name ? Auth::user()->name : 'Admin'
@@ -135,8 +135,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="{{ asset('image/user/' . Auth::user()->image) || ''}}"
-                                                alt="avatar " />
+                                            <img src="{{ asset('image/user/' . Auth::user()->image)}}" alt="avatar " />
                                         </a>
                                     </div>
                                     <div class="content">
@@ -174,12 +173,11 @@
                                     {{-- <i class="zmdi zmdi-power"> --}}
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                                <span class="align-center">
-                                                    Đăng
-                                                    xuất</span>
-                                            </a>
+                                            <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                <i class="bx bx-power-off me-2"></i>
+                                                <span class="align-middle">{{ __('Đăng xuất') }}</span>
+                                            </x-responsive-nav-link>
                                         </form>
                                 </div>
                             </div>
