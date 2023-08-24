@@ -41,7 +41,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="/image/icon/logomain.png" style="max-height: 75px" alt="Logo" />
+                                <img src="/image/icon/logomain.png" style="max-height: 66px" alt="Logo" />
                             </a>
                         </div>
                         <div class="login-form">
