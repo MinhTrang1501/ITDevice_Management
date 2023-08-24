@@ -75,10 +75,10 @@ https://getcomposer.org/download/
 
 # Commands
 
-step 1: npm install
-step 2: composer require laravel/ui
-step 3: create .env file from .env.example
-step 4: php artisan serve
-step 5: run laragon and go to phpMyAdmin create database it_device_management
-step 6: php artisan migrate
-step 7: php artisan db:seed
+- step 1: npm install
+- step 2: composer require laravel/ui
+- step 3: create .env file from .env.example
+- step 4: php artisan serve
+- step 5: run laragon and go to phpMyAdmin create database it_device_management
+- step 6: php artisan migrate
+- step 7: php artisan db:seed
