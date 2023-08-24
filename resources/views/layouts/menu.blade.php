@@ -1,5 +1,5 @@
 @php
-$categories = App\Models\category::all();
+$categories = App\Models\Category::all();
 @endphp
 
 
