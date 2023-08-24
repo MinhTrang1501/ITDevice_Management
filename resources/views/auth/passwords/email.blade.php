@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="au theme template" />
-    <meta name="author" content="Thu Trang" />
+    <meta name="author" content="Minh Trang" />
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
@@ -41,11 +41,12 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="image/icon/logo.png" alt="CoolAdmin" />
+                                <img src="/image/icon/logomain.png" style="max-height: 75px" alt="Logo" />
                             </a>
                         </div>
                         <div class="login-form">
                             <form action="{{ route('forget.password.post') }}" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input class="au-input au-input--full" type="email" name="email"

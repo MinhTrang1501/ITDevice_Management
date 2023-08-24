@@ -48,13 +48,13 @@ class ForgotPasswordController extends Controller
               $message->to($request->email);
               $message->subject('Reset Password');
           });
-
-          return back()->with('success', 'We have e-mailed your password reset link!');
+          
+          return view('auth.login')->with('success', 'We have e-mailed your password reset link!');
       }
 
     public function showResetPasswordForm($token)
     {
-        return view('auth.passwords.forgetPassword', ['token' => $token]);
+        return view('auth.passwords.reset', ['token' => $token]);
     }
 
     public function submitResetPasswordForm(ResetPasswordRequest $request)
@@ -67,10 +67,11 @@ class ForgotPasswordController extends Controller
           if(!$updatePassword){
               return back()->withInput()->with('error', 'Invalid token!');
           }
-          $user = User::where('email', $request->email)
+          $user = User::where('email', $updatePassword->email)
                       ->update(['password' => Hash::make($request->password)]);
 
-          DB::table('password_resets')->where(['token' => $request->token])->delete();
+          DB::table('password_resets')->where(['token' => $request->token,
+          'email' => $updatePassword->email])->delete();
 
           return redirect()->route('login')->with('success', 'Your password has been reseted!');
       }

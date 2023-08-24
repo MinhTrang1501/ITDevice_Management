@@ -4,7 +4,7 @@
 Project:  CoolAdmin
 Version:	1.0
 Last change:	08/10/2018 [Add Define a table of contents Link]
-Assigned to:	Thu Trang
+Assigned to:	Minh Trang
 Primary use:	Open Source
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -14745,4 +14745,15 @@ section {
 .vue-lists ul,
 .vue-lists ol {
   padding-left: 30px;
+}
+
+/* form */
+.button-select {
+  height: max-content;
+}
+.display-block {
+  display: block !important;
+}
+.display-none {
+  display: none;
 }
